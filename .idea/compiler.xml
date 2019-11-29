@@ -9,7 +9,7 @@
         <module name="Security" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="12">
       <module name="Security" target="12" />
     </bytecodeTargetLevel>
   </component>

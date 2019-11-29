@@ -108,7 +108,7 @@
           <ul class="treeview-menu">
             <li><a href="/Security_war_exploded/servlet/ServletAdminFindAllSecurity">所有证券</a></li>
             <li><a href="/Security_war_exploded/servlet/ServletAdminAllDeal">交易证券</a></li>
-            <li><a href="security_add.jsp">添加证券</a></li>
+            <li><a href="../admin/page/security_add.jsp">添加证券</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -119,7 +119,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/Security_war_exploded/servlet/ServletAdminAllUser">所有用户</a></li>
-            <li><a href="add_user.jsp">添加用户</a></li>
+            <li><a href="../admin/page/add_user.jsp">添加用户</a></li>
           </ul>
         </li>
       </ul>
@@ -179,9 +179,8 @@
               <td><%= users.getUser_profession()%></td>
               <td><%= users.getUser_workunit()%></td>
               <td><%= users.getUser_phone()%></td>
-              <td><a href="/Security_war_exploded/servlet/ServletAdminFindUserSecurityInfo?deal_id=<%= users.getUser_id()%>">详情</a></td>
+              <td><a href="/Security_war_exploded/servlet/ServletAdminFindUserInfo?user_id=<%= users.getUser_id()%>">详情</a></td>
 
-              <%--                            <td><a href="${pageContext.request.contextPath}/servlet/OrderDetailServlet?order_id=<%= securitys.getOrder_id()%>&flag=a">查看</a>丨<a href="${pageContext.request.contextPath}/servlet/OrderDetailServlet?order_id=<%= securitys.getOrder_id()%>&rid=<%= securitys.getRid()%>&flag=b">处理</a></td>--%>
 
             </tr>
 

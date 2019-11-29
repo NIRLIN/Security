@@ -120,7 +120,7 @@
           <ul class="treeview-menu">
             <li><a href="/Security_war_exploded/servlet/ServletAdminFindAllSecurity">所有证券</a></li>
             <li><a href="/Security_war_exploded/servlet/ServletAdminAllDeal">交易证券</a></li>
-            <li><a href="security_add.jsp">添加证券</a></li>
+            <li><a href="../admin/page/security_add.jsp">添加证券</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -131,7 +131,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/Security_war_exploded/servlet/ServletAdminAllUser">所有用户</a></li>
-            <li><a href="add_user.jsp">添加用户</a></li>
+            <li><a href="../admin/page/add_user.jsp">添加用户</a></li>
           </ul>
         </li>
       </ul>

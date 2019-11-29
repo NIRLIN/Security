@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.tomcat:tomcat-juli:9.0.27">
+    <CLASSES>
+      <root url="jar://$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3/repository/org/apache/tomcat/tomcat-juli/9.0.27/tomcat-juli-9.0.27.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3/repository/org/apache/tomcat/tomcat-juli/9.0.27/tomcat-juli-9.0.27-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3/repository/org/apache/tomcat/tomcat-juli/9.0.27/tomcat-juli-9.0.27-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

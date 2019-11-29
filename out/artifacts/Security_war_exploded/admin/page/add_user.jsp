@@ -129,7 +129,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/Security_war_exploded/servlet/ServletAdminAllUser">所有用户</a></li>
-            <li><a href="add_user.jsp">添加用户</a></li>
+            <li><a href="../admin/page/add_user.jsp">添加用户</a></li>
           </ul>
         </li>
       </ul>

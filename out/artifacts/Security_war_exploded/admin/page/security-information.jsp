@@ -23,17 +23,17 @@
   }
   </style>
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/Security_war_exploded/admin/css/bootstrap/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../css/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="/Security_war_exploded/admin/css/font-awesome/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="../css/Ionicons/ionicons.min.css">
+  <link rel="stylesheet" href="/Security_war_exploded/admin/css/Ionicons/ionicons.min.css">
   <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="../css/bootstrap-datepicker/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="/Security_war_exploded/admin/css/bootstrap-datepicker/bootstrap-datepicker.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../css/AdminLTE/AdminLTE.min.css">
+  <link rel="stylesheet" href="/Security_war_exploded/admin/css/AdminLTE/AdminLTE.min.css">
   <!-- AdminLTE Skin -->
-  <link rel="stylesheet" href="../css/AdminLTE/skin/skin-blue.min.css">
+  <link rel="stylesheet" href="/Security_war_exploded/admin/css/AdminLTE/skin/skin-blue.min.css">
   <!-- Google Font -->
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
 </head>
@@ -53,7 +53,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="../admin/page/index.jsp" class="logo">
+    <a href="/Security_war_exploded/admin/admin/page/index.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>证券</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -76,20 +76,20 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="../img/setting.png" class="user-image" alt="User Image">
+              <img src="/Security_war_exploded/admin/img/setting.png" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs"><%= name%></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="../img/word.jpg" class="img-circle" alt="User Image">
+                <img src="/Security_war_exploded/admin/img/word.jpg" class="img-circle" alt="User Image">
                 <p>让学习成为一种习惯</p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="../admin/page/password-change.html" class="btn btn-default btn-flat">修改密码</a>
+                  <a href="/Security_war_exploded/admin/admin/page/password-change.html" class="btn btn-default btn-flat">修改密码</a>
                 </div>
                 <div class="pull-right">
                   <a class="btn btn-default btn-flat" href="/Security_war_exploded/servlet/ServletDestroyLogin">退出</a>
@@ -152,10 +152,9 @@
     </section>
     <%
       Securitys securitys= (Securitys) request.getAttribute("securitys");
-      int HaveSecurity= (int) request.getAttribute("HaveSecurity");
       //out.print("<script>alert('+securitys.getSecuritys_id()+')</script>");
     %>
-    
+
     <!-- Main content -->
     <section class="content container-fluid" style="margin-top: 20px;">
       <!-- Horizontal Form -->
@@ -166,94 +165,54 @@
 
         <!-- /.box-header -->
         <!-- form start -->
-        <form class="form-horizontal" id="fm-add" role="form" action="" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" id="fm-add" name="fm-add" role="form" action="/Security_war_exploded/servlet/ServletAdminAUpdateSecurity" method="post" >
           <div class="box-body">
             <div class="form-group">
               <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="securitys_id" id="securitys_id" readonly placeholder="证券编号"  value="证券id：<%=securitys.getSecuritys_id() %>">
+                  <span style="float: left; width: 35%;font-size: 20px;">证券id:</span>
+                  <input type="text" style="width: 65%;" class="form-control" name="securitys_id" id="securitys_id" readonly placeholder="证券编号"  value="<%=securitys.getSecuritys_id() %>">
               </div>
               <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="securitys_short" id="securitys_short" readonly  placeholder="证券简称" value="证券简称：<%=securitys.getSecuritys_short()%>">
+                  <span style="float: left; width: 35%;font-size: 20px;">证券简称:</span>
+                  <input type="text" style="width: 65%;" class="form-control" name="securitys_short" id="securitys_short"   placeholder="证券简称" value="<%=securitys.getSecuritys_short()%>">
               </div>
                <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="securitys_companyname" id="securitys_companyname" readonly placeholder="证券公司名称" value="证券公司名称：<%=securitys.getSecuritys_companyname()%>">
+                   <span style="float: left; width: 35%;font-size: 20px;">证券公司名称:</span>
+                   <input type="text" style="width: 65%;" class="form-control" name="securitys_companyname" id="securitys_companyname"  placeholder="证券公司名称" value="<%=securitys.getSecuritys_companyname()%>">
               </div>
             </div>
             <div class="form-group">
               <div class="col-sm-10 my-input">
-              <input type="text" class="form-control" name="securitys_unitprice" id="securitys_unitprice" readonly placeholder="证券单价/股" value="证券单价/股：<%=securitys.getSecuritys_unitprice()%>">
+                  <span style="float: left; width: 35%;font-size: 20px;">证券单价/股:</span>
+                  <input type="text" style="width: 65%;" class="form-control" name="securitys_unitprice" id="securitys_unitprice"  placeholder="证券单价/股" value="<%=securitys.getSecuritys_unitprice()%>">
             </div>
               <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="securitys_residualquantity" id="securitys_residualquantity" readonly placeholder="证券剩余量（股）" value="证券剩余量（股）：<%=securitys.getSecuritys_residualquantity()%>">
+                  <span style="float:  left; width: 35%;font-size: 20px;">证券剩余量（股）:</span>
+
+                  <input type="text"  style="width: 65%;" class="form-control" name="securitys_residualquantity" id="securitys_residualquantity"  placeholder="证券剩余量（股）" value="<%=securitys.getSecuritys_residualquantity()%>">
               </div>
                 <div class="col-sm-10 my-input">
-                    <input type="text" class="form-control" name="securitys_totalquantity" id="securitys_totalquantity" readonly placeholder="证券总量（股）" value="证券总量（股）：<%=securitys.getSecuritys_totalquantity()%>">
+                    <span style="float: left; width: 35%;font-size: 20px;">证券总量（股）:</span>
+                    <input type="text" style="width: 65%;" class="form-control" name="securitys_totalquantity" id="securitys_totalquantity"  placeholder="证券总量（股）" value="<%=securitys.getSecuritys_totalquantity()%>">
                 </div>
 
             </div>
             <div class="form-group">
                 <div class="col-sm-10 my-input">
-                    <input type="text" class="form-control" name="phone" id="phone" readonly placeholder="证券公司电话" value="证券公司电话：<%=securitys.getSecuritys_phone()%>">
+                    <span style="float: left; width: 35%;font-size: 20px;">证券公司电话:</span>
+                    <input type="text"  style="width: 65%;" class="form-control" name="securitys_phone" id="securitys_phone"  placeholder="证券公司电话" value="<%=securitys.getSecuritys_phone()%>">
                 </div>
               <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="address" id="address" readonly placeholder="证券公司地址" value="证券公司地址：<%=securitys.getSecuritys_address()%>">
+                  <span style="float: left; width: 35%;font-size: 20px;">证券公司地址:</span>
+                  <input type="text" style="width: 65%;" class="form-control" name="securitys_address" id="securitys_address"  placeholder="证券公司地址" value="<%=securitys.getSecuritys_address()%>">
               </div>
               <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="appeardata" id="appeardata" readonly placeholder="证券公司上市日期" value="证券公司上市日期：<%=securitys.getSecuritys_appeardata()%>">
+                  <span style="float: left; width: 35%;font-size: 20px;">证券上市日期:</span>
+                  <input type="text"style="width: 65%;" class="form-control" name="securitys_appeardata" id="securitys_appeardata"  placeholder="证券上市日期" value="<%=securitys.getSecuritys_appeardata()%>">
               </div>
 
             </div>
-              <div class="form-group">
-                  <div class="col-sm-10 my-input">
-                      <input type="text" class="form-control" name="havesecuritys" id="havesecuritys" readonly placeholder="持有证券数量" value="个人持有量：<%=HaveSecurity%>">
-                  </div>
-                  <div class="col-sm-10 my-input">
-                      <input type="text" class="form-control" name="intent" id="intent" readonly value="请选择是否进行购入（为0则不购入）:">
-                  </div>
-                  <div class="col-sm-10 my-input">
-                      <li style="list-style: none;">
-                          <ul class="count" style="list-style: none;margin-top: -5px;margin-left: -30px;">
-                              <li><span id="num-jian" class="num-jian"  style="float: left; border: solid 1px #9bd2ed;background-color: #9bd2ed;width: 25px;height: 26px;">-</span></li>
-                              <li><input type="text" class="input-num" id="input-num" name="input-num" value="0" style="float: left;width: 40px;height: 26px;"/></li>
-                              <li><span id="num-jia" class="num-jia" style="float: left; border: solid 1px #9bd2ed;background-color: #9bd2ed;width: 25px;height: 26px;">+</span></li>
-                          </ul>
-                      </li>
-                  </div>
-              </div>
 
-                <script>
-
-                    var num_jia = document.getElementById("num-jia");
-                    var num_jian = document.getElementById("num-jian");
-                    var input_num = document.getElementById("input-num");
-                    var securitys_residualquantity1 = document.getElementById("securitys_residualquantity");
-                    var securitys_residualquantity=securitys_residualquantity1.value.split("：")[1];
-
-                    num_jia.onclick = function() {
-                        if (parseInt(securitys_residualquantity)<0){
-                            input_num.value=0;
-                        }
-                        else if (parseInt(input_num.value)>=parseInt(securitys_residualquantity)){
-                            input_num.value=securitys_residualquantity;
-
-                        }else {
-                            input_num.value = parseInt(input_num.value) + 1;
-                        }
-                    }
-
-                    num_jian.onclick = function() {
-
-                        if(input_num.value <= 0) {
-                            input_num.value = 0;
-                        } else {
-
-                            input_num.value = parseInt(input_num.value) - 1;
-                        }
-
-                    }
-                </script>
-
-            </div>
             <div class="form-group">
             	<div class="col-sm-10">
             	<span id="info"></span>
@@ -262,7 +221,7 @@
 
           <!-- /.box-body -->
           <div class="box-footer">
-            <input type="button" class="btn btn-primary pull-right" onclick="button_panduan()" value="购入/返回">
+            <input type="button" class="btn btn-primary pull-right"  id="but" onclick="button_panduan()" value="保存">
           </div>
           <!-- /.box-footer -->
         </form>
@@ -291,35 +250,40 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="../js/jquery/jquery.min.js"></script>
+<script src="/Security_war_exploded/admin/js/jquery/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="../js/bootstrap/bootstrap.min.js"></script>
+<script src="/Security_war_exploded/admin/js/bootstrap/bootstrap.min.js"></script>
 <!-- bootstrap datepicker -->
-<script src="../js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-<script src="../js/bootstrap-datepicker/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="/Security_war_exploded/admin/js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="/Security_war_exploded/admin/js/bootstrap-datepicker/bootstrap-datepicker.zh-CN.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../js/AdminLTE/adminlte.min.js"></script>
+<script src="/Security_war_exploded/admin/js/AdminLTE/adminlte.min.js"></script>
 <!-- page script -->
 <script>
     function button_panduan() {
-        var deal_count = parseInt(document.getElementsByName("input-num")[0].value);
-        var securitys_id1 = (document.getElementsByName("securitys_id")[0].value).split("：");
-        var securitys_id =securitys_id1[1];
 
-        var securitys_residualquantity2 = document.getElementById("securitys_residualquantity");
-        var securitys_residualquantity3=securitys_residualquantity2.value.split("：")[1];
+        var securitys_id=document.getElementById("securitys_id");
+        var securitys_short=document.getElementById("securitys_short");
 
-        var link="?securitys_id="+securitys_id+"&deal_count="+deal_count;
-        if (deal_count==0||parseInt(securitys_residualquantity3)<parseInt(deal_count)){
-            alert("操作错误！");
-             window.location.href = 'http://localhost:8080/Security_war_exploded/servlet/ServletAllFind';
-        }else {
-            window.location.href = 'http://localhost:8080/Security_war_exploded/servlet/ServletUserBuySecurity'+link;
+
+        var securitys_companyname=document.getElementById("securitys_companyname");
+        var securitys_unitprice=document.getElementById("securitys_unitprice");
+        var securitys_residualquantity=document.getElementById("securitys_residualquantity");
+        var securitys_totalquantity=document.getElementById("securitys_totalquantity");
+        var securitys_address=document.getElementById("securitys_address");
+        var securitys_phone=document.getElementById("securitys_phone");
+        var securitys_appeardata=document.getElementById("securitys_appeardata");
+        if (securitys_id.value===""||securitys_short.value===""||securitys_companyname.value===""||securitys_unitprice.value===""||securitys_residualquantity.value===""||securitys_totalquantity.value===""||securitys_address.value===""||securitys_phone.value===""||securitys_appeardata.value===""){
+            alert("信息不可为空！");
+            return
         }
+
+        document.getElementById("fm-add").submit();
+
     }
 
 //Date picker
-$('#published').datepicker({
+$('#appeardata').datepicker({
   language: 'zh-CN',
   todayHighlight: true,
   format: 'yyyy-mm-dd',
@@ -403,7 +367,7 @@ $('#bt-submit').click(function(){
         success: function(txt, msg, xhr){
             if(txt=='yes'){  //成功
             	alert("添加成功！");
-                window.location.href =  "../page/product-add.html";
+                window.location.href =  "/Security_war_exploded/admin/page/product-add.html";
             }else{ //失败
                 $('#info').html('添加失败！');
                 $("#info").css("color","red");

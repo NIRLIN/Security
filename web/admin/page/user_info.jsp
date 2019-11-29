@@ -1,20 +1,30 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="po.Users" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*" %>
 <html>
 <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <title>主页</title>
+    <title>商品详情</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- page style -->
     <style>
-        .my_content {
-            padding-top: 18%;
-            text-align: center;
-            font-size: 28px;
-            /*background: #f00;*/
+        .my-input {
+            width: 22.77777778% !important;
         }
 
+        .my-label {
+            width: 10.55555555% !important;
+        }
+
+        .my-img {
+            padding-right: 2.0% !important;
+            padding-left: 8.0% !important;
+        }
+
+        .datepicker {
+            z-index: 9999 !important;
+        }
     </style>
     <!-- Bootstrap 3.3.7 -->
     <link href="${pageContext.request.contextPath}/user/css/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -34,7 +44,7 @@
     String name = (String) request.getSession().getAttribute("admin_name");
     if (name == null) {
         response.getWriter().write("<script>alert('警告！请登录，点击返回返回登录页面！')</script>");
-        response.setHeader("refresh", "0.1;url=" + request.getContextPath() + "/admin/page/login.html");
+        response.setHeader("refresh", "0.1;url=" + request.getContextPath() + "/user/page/login.html");
     }
 %>
 <div class="wrapper">
@@ -43,14 +53,12 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a class="logo" href="index.jsp">
+        <a class="logo" href="../user/page/index.jsp">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>证券</b></span>
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg">证券交易系统</span>
         </a>
-
-
 
         <!-- Header Navbar -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -81,7 +89,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a class="btn btn-default btn-flat" href="password-change.html">修改密码</a>
+                                    <a href="../user/page/password-change.html" class="btn btn-default btn-flat">修改密码</a>
                                 </div>
                                 <div class="pull-right">
                                     <a class="btn btn-default btn-flat" href="/Security_war_exploded/servlet/ServletDestroyLogin">退出</a>
@@ -89,7 +97,6 @@
                             </li>
                         </ul>
                     </li>
-
                 </ul>
             </div>
         </nav>
@@ -137,22 +144,80 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1><small></small></h1>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-dashboard">&nbsp;个人信息</i></li>
+                <li><i class="fa"></i>信息查看</li>
 
+            </ol>
         </section>
-
         <!-- Main content -->
-        <section class="content container-fluid" style="margin-top: 20px;">
-            <div class="my_content">
-                欢迎使用！
+        <section class="content container-fluid" style="margin-top: 30px;">
+            <%
+                Users user=(Users)request.getAttribute("user");
+//                out.print("<script>alert('"+user.getUser_id()+"')</script>");
+            %>
+            <!-- Horizontal Form -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">详细信息</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal" role="form" method="post" action="/Security_war_exploded/servlet/ServletAdminUpdateUser">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label my-label" for="user_id">用户id</label>
+                            <div class="col-sm-10 my-input">
+                                <input class="form-control" id="user_id" name="user_id" readonly  type="text" value="<%=user.getUser_id()%>">
+                            </div>
+                            <label class="col-sm-2 control-label my-label" for="user_name">用户姓名</label>
+                            <div class="col-sm-10 my-input">
+                                <input class="form-control" id="user_name" name="user_name"   type="text" value="<%=user.getUser_name()%>">
+                            </div>
+                            <label class="col-sm-2 control-label my-label" for="user_sex">用户性别</label>
+                            <div class="col-sm-10 my-input">
+                                <input class="form-control" id="user_sex" name="user_sex"   type="text" value="<%=user.getUser_sex()%>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label my-label" for="user_nationality">用户国籍</label>
+                            <div class="col-sm-10 my-input">
+                                <input class="form-control" id="user_nationality" name="user_nationality"   type="text" value="<%=user.getUser_nationality()%>">
+                            </div>
+                            <label class="col-sm-2 control-label my-label" for="user_balance">用户余额</label>
+                            <div class="col-sm-10 my-input">
+                                <input class="form-control" id="user_balance" name="user_balance"  readonly  type="text" value="<%=user.getUser_balance()%>">
+                            </div>
+                            <label class="col-sm-2 control-label my-label" for="user_profession">用户职业</label>
+                            <div class="col-sm-10 my-input">
+                                <input class="form-control" id="user_profession" name="user_profession"   type="text" value="<%=user.getUser_profession()%>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label my-label" for="user_workunit">工作单位</label>
+                            <div class="col-sm-10 my-input">
+                                <input class="form-control" id="user_workunit" name="user_workunit"   type="text" value="<%=user.getUser_workunit()%>">
+                            </div>
+                            <label class="col-sm-2 control-label my-label" for="user_phone">联系电话</label>
+                            <div class="col-sm-10 my-input">
+                                <input class="form-control" id="user_phone" name="user_phone"   type="text" value="<%=user.getUser_phone()%>">
+                            </div>
+                            <label class="col-sm-2 control-label my-label" for="user_idcard">身份证号</label>
+                            <div class="col-sm-10 my-input">
+                                <input class="form-control" id="user_idcard" name="user_idcard"   type="text" value="<%=user.getUser_idcard()%>">
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <input type="submit" class="btn btn-primary pull-right"  value="修改">
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
             </div>
         </section>
-
-
-
-
-
-        
-        
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
