@@ -33,7 +33,7 @@
   String name = (String) request.getSession().getAttribute("admin_name");
   if (name == null) {
     response.getWriter().write("<script>alert('警告！请登录，点击返回返回登录页面！')</script>");
-    response.setHeader("refresh", "0.1;url=" + request.getContextPath() + "/admin/page/login.html");
+    response.setHeader("refresh", "0.1;url=" + request.getContextPath() + "/admin/page/login.jsp");
   }
 %>
 <div class="wrapper">
@@ -81,7 +81,7 @@
                   <a href="password-change.html" class="btn btn-default btn-flat">修改密码</a>
                 </div>
                 <div class="pull-right">
-                  <a href="login.html" class="btn btn-default btn-flat">退出</a>
+                  <a href="login.jsp" class="btn btn-default btn-flat">退出</a>
                 </div>
               </li>
             </ul>
@@ -106,8 +106,8 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/Security_war_exploded/servlet/ServletAdminFindAllSecurity">所有证券</a></li>
-            <li><a href="/Security_war_exploded/servlet/ServletAdminAllDeal">交易证券</a></li>
+            <li><a href="<%=request.getContextPath()%>/servlet/ServletAdminFindAllSecurity">所有证券</a></li>
+            <li><a href="<%=request.getContextPath()%>/servlet/ServletAdminAllDeal">交易证券</a></li>
             <li><a href="../admin/page/security_add.jsp">添加证券</a></li>
           </ul>
         </li>
@@ -118,7 +118,7 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/Security_war_exploded/servlet/ServletAdminAllUser">所有用户</a></li>
+            <li><a href="<%=request.getContextPath()%>/servlet/ServletAdminAllUser">所有用户</a></li>
             <li><a href="../admin/page/add_user.jsp">添加用户</a></li>
           </ul>
         </li>
@@ -179,7 +179,7 @@
               <td><%= users.getUser_profession()%></td>
               <td><%= users.getUser_workunit()%></td>
               <td><%= users.getUser_phone()%></td>
-              <td><a href="/Security_war_exploded/servlet/ServletAdminFindUserInfo?user_id=<%= users.getUser_id()%>">详情</a></td>
+              <td><a href="<%=request.getContextPath()%>/servlet/ServletAdminFindUserInfo?user_id=<%= users.getUser_id()%>">详情</a></td>
 
 
             </tr>

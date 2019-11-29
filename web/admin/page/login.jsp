@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="utf-8">
+<!--  <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>登录</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -11,6 +13,7 @@
   </style>
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../css/font-awesome/font-awesome.min.css">
   <!-- Ionicons -->
@@ -29,28 +32,29 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">管理员忘记密码</p>
+    <p class="login-box-msg">管理员登录</p>
 
-    <form action="index.jsp" method="post">
+
+    <form action="<%=request.getContextPath()%>/servlet/ServletAdminLogin" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Name">
+        <input type="text" class="form-control" placeholder="Name" id="name" name="name">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Password" id="password" name="password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">修改</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
         </div>
         <!-- /.col -->
       </div>
     </form>
 
     <!-- /.social-auth-links -->
-
+    <a href="forgetpd.html">忘记密码？</a><br>
   </div>
   <!-- /.login-box-body -->
 </div>

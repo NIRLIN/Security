@@ -43,7 +43,7 @@
   String name = (String) request.getSession().getAttribute("name");
   if (name == null) {
     response.getWriter().write("<script>alert('警告！请登录，点击返回返回登录页面！')</script>");
-    response.setHeader("refresh", "0.1;url=" + request.getContextPath() + "/user/page/login.html");
+    response.setHeader("refresh", "0.1;url=" + request.getContextPath() + "/user/page/login.jsp");
   }
 %>
 
@@ -92,7 +92,7 @@
                   <a href="../user/page/password-change.html" class="btn btn-default btn-flat">修改密码</a>
                 </div>
                 <div class="pull-right">
-                  <a class="btn btn-default btn-flat" href="/Security_war_exploded/servlet/ServletDestroyLogin">退出</a>
+                  <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/servlet/ServletDestroyLogin">退出</a>
                 </div>
               </li>
             </ul>
@@ -117,8 +117,8 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/Security_war_exploded/servlet/ServletAllFind">所有证券</a></li>
-            <li><a href="/Security_war_exploded/servlet/ServletHaveSecurity">已购证券</a></li>
+            <li><a href="<%=request.getContextPath()%>/servlet/ServletAllFind">所有证券</a></li>
+            <li><a href="<%=request.getContextPath()%>/servlet/ServletHaveSecurity">已购证券</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -128,7 +128,7 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/Security_war_exploded/servlet/ServletFindOneUserInfo">信息查看</a></li>
+            <li><a href="<%=request.getContextPath()%>/servlet/ServletFindOneUserInfo">信息查看</a></li>
           </ul>
         </li>
       </ul>
@@ -310,9 +310,9 @@
         var link="?securitys_id="+securitys_id+"&deal_count="+deal_count;
         if (deal_count==0||parseInt(securitys_residualquantity3)<parseInt(deal_count)){
             alert("操作错误！");
-             window.location.href = 'http://localhost:8080/Security_war_exploded/servlet/ServletAllFind';
+             window.location.href = 'http://localhost:8080<%=request.getContextPath()%>/servlet/ServletAllFind';
         }else {
-            window.location.href = 'http://localhost:8080/Security_war_exploded/servlet/ServletUserBuySecurity'+link;
+            window.location.href = 'http://localhost:8080<%=request.getContextPath()%>/servlet/ServletUserBuySecurity'+link;
         }
     }
 

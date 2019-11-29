@@ -34,7 +34,7 @@
     String name = (String) request.getSession().getAttribute("admin_name");
     if (name == null) {
         response.getWriter().write("<script>alert('警告！请登录，点击返回返回登录页面！')</script>");
-        response.setHeader("refresh", "0.1;url=" + request.getContextPath() + "/admin/page/login.html");
+        response.setHeader("refresh", "0.1;url=" + request.getContextPath() + "/admin/page/login.jsp");
     }
 %>
 <div class="wrapper">
@@ -84,7 +84,7 @@
                                     <a class="btn btn-default btn-flat" href="password-change.html">修改密码</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a class="btn btn-default btn-flat" href="/Security_war_exploded/servlet/ServletDestroyLogin">退出</a>
+                                    <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/servlet/ServletDestroyLogin">退出</a>
                                 </div>
                             </li>
                         </ul>
@@ -110,8 +110,8 @@
                 </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/Security_war_exploded/servlet/ServletAdminFindAllSecurity">所有证券</a></li>
-                        <li><a href="/Security_war_exploded/servlet/ServletAdminAllDeal">交易证券</a></li>
+                        <li><a href="<%=request.getContextPath()%>/servlet/ServletAdminFindAllSecurity">所有证券</a></li>
+                        <li><a href="<%=request.getContextPath()%>/servlet/ServletAdminAllDeal">交易证券</a></li>
                         <li><a href="security_add.jsp">添加证券</a></li>
                     </ul>
                 </li>
@@ -122,7 +122,7 @@
                 </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/Security_war_exploded/servlet/ServletAdminAllUser">所有用户</a></li>
+                        <li><a href="<%=request.getContextPath()%>/servlet/ServletAdminAllUser">所有用户</a></li>
                         <li><a href="add_user.jsp">添加用户</a></li>
                     </ul>
                 </li>

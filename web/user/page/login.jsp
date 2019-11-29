@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="utf-8">
+<!--    <meta charset="utf-8">-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <title>登录</title>
     <!-- Tell the browser to be responsive to screen width -->
@@ -30,33 +31,28 @@
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">用户忘记密码</p>
+        <p class="login-box-msg">用户登录</p>
 
-        <form action="/Security_war_exploded/servlet/ServletUserForgetPassdWord" method="post" id="forgetpd" name="forgetpd">
-
+        <form action="<%=request.getContextPath()%>/servlet/ServletUserLogin" method="post">
             <div class="form-group has-feedback">
-                <input class="form-control"  id="Name" name="Name" type="text">
+                <input class="form-control" placeholder="Name" type="text" name="name">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input class="form-control" id="New_Password" name="New_Password" type="password">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <input class="form-control" id="Again_New_Password" name="Again_New_Password" type="password">
+                <input class="form-control" placeholder="Password" type="password" name="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <input class="btn btn-primary btn-block btn-flat" type="button" value="修改" onclick="button_login()">
+                    <button class="btn btn-primary btn-block btn-flat" type="submit">登录</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
 
         <!-- /.social-auth-links -->
-
+        <a href="forgetpd.html">忘记密码？</a><br>
     </div>
     <!-- /.login-box-body -->
 </div>
@@ -70,33 +66,6 @@
 <script src="../js/iCheck/icheck.min.js"></script>
 <!-- page script -->
 <script>
-
-    function button_login(){
-        var Name=document.getElementById("Name");
-        var Phone=document.getElementById("Phone");
-        var New_Password=document.getElementById("New_Password");
-        var Again_New_Password=document.getElementById("Again_New_Password");
-
-        if (Name.value==""){
-            alert("用户名不可为空！");
-            return
-        }
-
-        if (New_Password.value==""){
-            alert("第一次密码不可为空！");
-            return
-        }
-        if (Again_New_Password.value==""){
-            alert("第二次密码不可为空！");
-            return
-        }
-        if(New_Password.value!=Again_New_Password.value){
-            alert("两次密码不一致！");
-            return
-        }
-        $("#forgetpd").submit();
-    }
-
     $(function () {
         $('input').iCheck({
             checkboxClass: 'icheckbox_square-blue',

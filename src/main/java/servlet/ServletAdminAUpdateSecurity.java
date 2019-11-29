@@ -52,13 +52,13 @@ public class ServletAdminAUpdateSecurity extends HttpServlet {
         if (count==1){
             PrintWriter out=response.getWriter();
             out.print("<script>alert('证券信息修改成功');</script>");
-            response.sendRedirect("/Security_war_exploded/servlet/ServletAdminFindOneSecurity?securitys_id="+securitys_id);
+            response.sendRedirect(request.getContextPath()+"/servlet/ServletAdminFindOneSecurity?securitys_id="+securitys_id);
 
         }else {
             PrintWriter out=response.getWriter();
 
             out.print("<script>alert('证券信息修改失败');</script>");
-            response.sendRedirect("/Security_war_exploded/servlet/ServletAdminFindOneSecurity?securitys_id="+securitys_id);
+            response.sendRedirect(request.getContextPath()+"/servlet/ServletAdminFindOneSecurity?securitys_id="+securitys_id);
 
         }
 

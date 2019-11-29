@@ -83,7 +83,7 @@
                   <a href="password-change.html" class="btn btn-default btn-flat">修改密码</a>
                 </div>
                 <div class="pull-right">
-                  <a href="login.html" class="btn btn-default btn-flat">退出</a>
+                  <a href="login.jsp" class="btn btn-default btn-flat">退出</a>
                 </div>
               </li>
             </ul>
@@ -108,8 +108,8 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/Security_war_exploded/servlet/ServletAdminFindAllSecurity">所有证券</a></li>
-            <li><a href="/Security_war_exploded/servlet/ServletAdminAllDeal">交易证券</a></li>
+            <li><a href="<%=request.getContextPath()%>/servlet/ServletAdminFindAllSecurity">所有证券</a></li>
+            <li><a href="<%=request.getContextPath()%>/servlet/ServletAdminAllDeal">交易证券</a></li>
             <li><a href="../admin/page/security_add.jsp">添加证券</a></li>
           </ul>
         </li>
@@ -120,7 +120,7 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/Security_war_exploded/servlet/ServletAdminAllUser">所有用户</a></li>
+            <li><a href="<%=request.getContextPath()%>/servlet/ServletAdminAllUser">所有用户</a></li>
             <li><a href="add_user.jsp">添加用户</a></li>
           </ul>
         </li>
@@ -149,7 +149,7 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form class="form-horizontal"  action="/Security_war_exploded/servlet/ServletAdminAddSecurity" method="post" >
+        <form class="form-horizontal"  action="<%=request.getContextPath()%>/servlet/ServletAdminAddSecurity" method="post" >
           <div class="box-body">
             <div class="form-group">
               <div class="col-sm-10 my-input">

@@ -23,17 +23,17 @@
   }
   </style>
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="/Security_war_exploded/admin/css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/admin/css/bootstrap/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="/Security_war_exploded/admin/css/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/admin/css/font-awesome/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="/Security_war_exploded/admin/css/Ionicons/ionicons.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/admin/css/Ionicons/ionicons.min.css">
   <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="/Security_war_exploded/admin/css/bootstrap-datepicker/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/admin/css/bootstrap-datepicker/bootstrap-datepicker.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="/Security_war_exploded/admin/css/AdminLTE/AdminLTE.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/admin/css/AdminLTE/AdminLTE.min.css">
   <!-- AdminLTE Skin -->
-  <link rel="stylesheet" href="/Security_war_exploded/admin/css/AdminLTE/skin/skin-blue.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/admin/css/AdminLTE/skin/skin-blue.min.css">
   <!-- Google Font -->
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
 </head>
@@ -43,7 +43,7 @@
   String name = (String) request.getSession().getAttribute("admin_name");
   if (name == null) {
     response.getWriter().write("<script>alert('警告！请登录，点击返回返回登录页面！')</script>");
-    response.setHeader("refresh", "0.1;url=" + request.getContextPath() + "/admin/page/login.html");
+    response.setHeader("refresh", "0.1;url=" + request.getContextPath() + "/admin/page/login.jsp");
   }
 %>
 
@@ -53,7 +53,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="/Security_war_exploded/admin/admin/page/index.jsp" class="logo">
+    <a href="<%=request.getContextPath()%>/admin/page/index.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>证券</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -76,23 +76,23 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="/Security_war_exploded/admin/img/setting.png" class="user-image" alt="User Image">
+              <img src="<%=request.getContextPath()%>/admin/img/setting.png" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs"><%= name%></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="/Security_war_exploded/admin/img/word.jpg" class="img-circle" alt="User Image">
+                <img src="<%=request.getContextPath()%>/admin/img/word.jpg" class="img-circle" alt="User Image">
                 <p>让学习成为一种习惯</p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="/Security_war_exploded/admin/admin/page/password-change.html" class="btn btn-default btn-flat">修改密码</a>
+                  <a href="<%=request.getContextPath()%>/admin/admin/page/password-change.html" class="btn btn-default btn-flat">修改密码</a>
                 </div>
                 <div class="pull-right">
-                  <a class="btn btn-default btn-flat" href="/Security_war_exploded/servlet/ServletDestroyLogin">退出</a>
+                  <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/servlet/ServletDestroyLogin">退出</a>
                 </div>
               </li>
             </ul>
@@ -117,8 +117,8 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/Security_war_exploded/servlet/ServletAdminFindAllSecurity">所有证券</a></li>
-            <li><a href="/Security_war_exploded/servlet/ServletAdminAllDeal">交易证券</a></li>
+            <li><a href="<%=request.getContextPath()%>/servlet/ServletAdminFindAllSecurity">所有证券</a></li>
+            <li><a href="<%=request.getContextPath()%>/servlet/ServletAdminAllDeal">交易证券</a></li>
             <li><a href="security_add.jsp">添加证券</a></li>
           </ul>
         </li>
@@ -129,8 +129,9 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/Security_war_exploded/servlet/ServletAdminAllUser">所有用户</a></li>
-            <li><a href="add_user.jsp">添加用户</a></li>
+            <li><a href="<%=request.getContextPath()%>/servlet/ServletAdminAllUser">所有用户</a></li>
+            <li><a href="../admin/page/add_user.jsp">添加用户</a></li>
+
           </ul>
         </li>
       </ul>
@@ -165,7 +166,7 @@
 
         <!-- /.box-header -->
         <!-- form start -->
-        <form class="form-horizontal" id="fm-add" name="fm-add" role="form" action="/Security_war_exploded/servlet/ServletAdminAUpdateSecurity" method="post" >
+        <form class="form-horizontal" id="fm-add" name="fm-add" role="form" action="<%=request.getContextPath()%>/servlet/ServletAdminAUpdateSecurity" method="post" >
           <div class="box-body">
             <div class="form-group">
               <div class="col-sm-10 my-input">
@@ -250,14 +251,14 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="/Security_war_exploded/admin/js/jquery/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/admin/js/jquery/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="/Security_war_exploded/admin/js/bootstrap/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/admin/js/bootstrap/bootstrap.min.js"></script>
 <!-- bootstrap datepicker -->
-<script src="/Security_war_exploded/admin/js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-<script src="/Security_war_exploded/admin/js/bootstrap-datepicker/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="<%=request.getContextPath()%>/admin/js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="<%=request.getContextPath()%>/admin/js/bootstrap-datepicker/bootstrap-datepicker.zh-CN.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/Security_war_exploded/admin/js/AdminLTE/adminlte.min.js"></script>
+<script src="<%=request.getContextPath()%>/admin/js/AdminLTE/adminlte.min.js"></script>
 <!-- page script -->
 <script>
     function button_panduan() {
@@ -367,7 +368,7 @@ $('#bt-submit').click(function(){
         success: function(txt, msg, xhr){
             if(txt=='yes'){  //成功
             	alert("添加成功！");
-                window.location.href =  "/Security_war_exploded/admin/page/product-add.html";
+                window.location.href =  "<%=request.getContextPath()%>/admin/page/product-add.html";
             }else{ //失败
                 $('#info').html('添加失败！');
                 $("#info").css("color","red");
