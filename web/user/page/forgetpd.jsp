@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -32,7 +33,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">用户忘记密码</p>
 
-        <form action="/Security_war_exploded/servlet/ServletUserForgetPassdWord" method="post" id="forgetpd" name="forgetpd">
+        <form action="<%=request.getContextPath()%>/servlet/ServletUserForgetPassdWord" method="post" id="forgetpd" name="forgetpd">
 
             <div class="form-group has-feedback">
                 <input class="form-control"  id="Name" name="Name" type="text">

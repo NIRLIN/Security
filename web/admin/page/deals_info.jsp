@@ -24,17 +24,17 @@
   }
   </style>
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../admin/css/bootstrap/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../css/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="../admin/css/font-awesome/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="../css/Ionicons/ionicons.min.css">
+  <link rel="stylesheet" href="../admin/css/Ionicons/ionicons.min.css">
   <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="../css/bootstrap-datepicker/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="../admin/css/bootstrap-datepicker/bootstrap-datepicker.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../css/AdminLTE/AdminLTE.min.css">
+  <link rel="stylesheet" href="../admin/css/AdminLTE/AdminLTE.min.css">
   <!-- AdminLTE Skin -->
-  <link rel="stylesheet" href="../css/AdminLTE/skin/skin-blue.min.css">
+  <link rel="stylesheet" href="../admin/css/AdminLTE/skin/skin-blue.min.css">
   <!-- Google Font -->
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
 </head>
@@ -77,23 +77,23 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="../img/setting.png" class="user-image" alt="User Image">
+              <img src="../admin/img/setting.png" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs"><%= name%></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="../img/word.jpg" class="img-circle" alt="User Image">
+                <img src="../admin/img/word.jpg" class="img-circle" alt="User Image">
                 <p>让学习成为一种习惯</p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="../admin/page/password-change.html" class="btn btn-default btn-flat">修改密码</a>
+                  <a href="../admin/page/password-change.jsp" class="btn btn-default btn-flat">修改密码</a>
                 </div>
                 <div class="pull-right">
-                  <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/servlet/ServletDestroyLogin">退出</a>
+                  <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/servlet/ServletAdminDestroyLogin">退出</a>
                 </div>
               </li>
             </ul>
@@ -170,123 +170,46 @@
         <form class="form-horizontal" id="fm-add" role="form" action="" method="post" enctype="multipart/form-data">
           <div class="box-body">
             <div class="form-group">
+              <label class="col-sm-2 control-label my-label" for="user_id">订单id</label>
               <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="deal_id" id="deal_id" readonly placeholder="交易编号"  value="交易id：<%=deals.getDeal_id() %>">
+                <input class="form-control"  id="user_id" name="user_id" readonly  type="text" value="<%=deals.getDeal_id()%>">
               </div>
+              <label class="col-sm-2 control-label my-label" for="user_name">下单时间</label>
               <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="deal_time" id="deal_time" readonly  placeholder="交易时间" value="交易时间：<%=deals.getDeal_time()%>">
+                <input class="form-control" id="user_name" name="user_name" readonly  type="text" value="<%=deals.getDeal_time()%>">
               </div>
-               <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="securitys_id" id="securitys_id" readonly placeholder="证券id" value="证券id：<%=securitys.getSecuritys_id()%>">
-              </div>
-            </div>
-
-            <div class="form-group">
+              <label class="col-sm-2 control-label my-label" for="user_sex">证券id</label>
               <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="securitys_companyname" id="securitys_companyname" readonly placeholder="证券公司名称" value="证券公司名称：<%=securitys.getSecuritys_companyname()%>">
+                <input class="form-control" id="user_sex" name="user_sex"  readonly type="text" value="<%=deals.getDeal_security_id()%>">
               </div>
-              <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="securitys_unitprice" id="securitys_address" readonly placeholder="证券公司地址" value="证券公司地址：<%=securitys.getSecuritys_address()%>">
-              </div>
-              <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="securitys_phone" id="securitys_phone" readonly placeholder="证券公司电话" value="证券公司电话：<%=securitys.getSecuritys_phone()%>">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-sm-10 my-input">
-              <input type="text" class="form-control" name="securitys_unitprice" id="securitys_unitprice" readonly placeholder="证券单价/股" value="证券单价/股：<%=securitys.getSecuritys_unitprice()%>">
-            </div>
-              <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="securitys_residualquantity" id="securitys_residualquantity" readonly placeholder="证券剩余量（股）" value="证券剩余量（股）：<%=securitys.getSecuritys_residualquantity()%>">
-              </div>
-                <div class="col-sm-10 my-input">
-                    <input type="text" class="form-control" name="securitys_totalquantity" id="securitys_totalquantity" readonly placeholder="证券总量（股）" value="证券总量（股）：<%=securitys.getSecuritys_totalquantity()%>">
-                </div>
-
-            </div>
-
-
-
-
-              <div class="form-group">
-                <div class="col-sm-10 my-input">
-                  <input type="text" class="form-control" name="appeardata" id="appeardata" readonly placeholder="证券公司上市日期" value="证券公司上市日期：<%=securitys.getSecuritys_appeardata()%>">
-                </div>
-                  <div class="col-sm-10 my-input">
-                      <input type="text" class="form-control" name="havesecuritys" id="havesecuritys" readonly placeholder="持有证券数量" value="个人持有量：<%=deals.getDeal_count()%>">
-                  </div>
-                <div class="col-sm-10 my-input">
-                <input type="text" class="form-control" name="deal_pricesum" id="deal_pricesum" readonly placeholder="购入总额" value="购入总额：<%=deals.getDeal_pricesum()%>">
-              </div>
-
-              </div>
-
-            <div class="form-group">
-            <div class="col-sm-10 my-input">
-              <input type="text" class="form-control" name="intent" id="intent" readonly value="请选择是否进行售出（为0则不售出）:">
-            </div>
-            <div class="col-sm-10 my-input">
-              <li style="list-style: none;">
-                <ul class="count" style="list-style: none;margin-top: -5px;margin-left: -30px;">
-                  <li><span id="num-jian" class="num-jian"  style="float: left; border: solid 1px #9bd2ed;background-color: #9bd2ed;width: 25px;height: 26px;">-</span></li>
-                  <li><input type="text" class="input-num" id="input-num" name="input-num" value="0" style="float: left;width: 40px;height: 26px;"/></li>
-                  <li><span id="num-jia" class="num-jia" style="float: left; border: solid 1px #9bd2ed;background-color: #9bd2ed;width: 25px;height: 26px;">+</span></li>
-                </ul>
-              </li>
-            </div>
-            </div>
-
-
-
-                <script>
-
-                    var num_jia = document.getElementById("num-jia");
-                    var num_jian = document.getElementById("num-jian");
-                    var input_num = document.getElementById("input-num");
-                    var securitys_residualquantity1 = document.getElementById("havesecuritys");
-                    var securitys_residualquantity=securitys_residualquantity1.value.split("：")[1];
-
-                    num_jia.onclick = function() {
-                        if (parseInt(securitys_residualquantity)<0){
-                            input_num.value=0;
-                        }
-                        else if (parseInt(input_num.value)>=parseInt(securitys_residualquantity)){
-                            input_num.value=securitys_residualquantity;
-
-                        }else {
-                            input_num.value = parseInt(input_num.value) + 1;
-                        }
-                    }
-
-                    num_jian.onclick = function() {
-
-                        if(input_num.value <= 0) {
-                            input_num.value = 0;
-                        } else {
-
-                            input_num.value = parseInt(input_num.value) - 1;
-                        }
-
-                    }
-
-
-                </script>
-
-
-
-
-
             </div>
             <div class="form-group">
-            	<div class="col-sm-10">
-            	<span id="info"></span>
-            	</div>
+              <label class="col-sm-2 control-label my-label" for="user_nationality">用户id</label>
+              <div class="col-sm-10 my-input">
+                <input class="form-control" id="user_nationality" name="user_nationality" readonly  type="text" value="<%=deals.getDeal_user_id()%>">
+              </div>
+              <label class="col-sm-2 control-label my-label" for="user_balance">证券单价</label>
+              <div class="col-sm-10 my-input">
+                <input class="form-control" id="user_balance" name="user_balance"  readonly  type="text" value="<%=deals.getDeal_unitprice()%>">
+              </div>
+              <label class="col-sm-2 control-label my-label" for="user_profession">购买数量</label>
+              <div class="col-sm-10 my-input">
+                <input class="form-control" id="user_profession" name="user_profession"  readonly type="text" value="<%=deals.getDeal_count()%>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label my-label" for="user_workunit">订单总额</label>
+              <div class="col-sm-10 my-input">
+                <input class="form-control" id="user_workunit" name="user_workunit" readonly  type="text" value="<%=deals.getDeal_pricesum()%>">
+              </div>
+
+
             </div>
 
+          </div>
           <!-- /.box-body -->
           <div class="box-footer">
-            <input type="button" class="btn btn-primary pull-right" onclick="button_panduan()" value="卖出/返回">
+            <input type="submit" class="btn btn-primary pull-right"  value="修改">
           </div>
           <!-- /.box-footer -->
         </form>
@@ -315,14 +238,14 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="../js/jquery/jquery.min.js"></script>
+<script src="../admin/js/jquery/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="../js/bootstrap/bootstrap.min.js"></script>
+<script src="../admin/js/bootstrap/bootstrap.min.js"></script>
 <!-- bootstrap datepicker -->
-<script src="../js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-<script src="../js/bootstrap-datepicker/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="../admin/js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="../admin/js/bootstrap-datepicker/bootstrap-datepicker.zh-CN.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../js/AdminLTE/adminlte.min.js"></script>
+<script src="../admin/js/AdminLTE/adminlte.min.js"></script>
 <!-- page script -->
 <script>
     function button_panduan() {
@@ -427,7 +350,7 @@ $('#bt-submit').click(function(){
         success: function(txt, msg, xhr){
             if(txt=='yes'){  //成功
             	alert("添加成功！");
-                window.location.href =  "../page/product-add.html";
+                window.location.href =  "../admin/page/product-add.html";
             }else{ //失败
                 $('#info').html('添加失败！');
                 $("#info").css("color","red");

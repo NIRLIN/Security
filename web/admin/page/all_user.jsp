@@ -78,7 +78,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="password-change.html" class="btn btn-default btn-flat">修改密码</a>
+                  <a href="password-change.jsp" class="btn btn-default btn-flat">修改密码</a>
                 </div>
                 <div class="pull-right">
                   <a href="login.jsp" class="btn btn-default btn-flat">退出</a>
@@ -134,8 +134,8 @@
     <section class="content-header">
       <h1><small></small></h1>
       <ol class="breadcrumb">
-        <li><i class="fa fa-dashboard">&nbsp;证券管理</i></li>
-        <li class="active">所有订单</li>
+        <li><i class="fa fa-dashboard">&nbsp;用户管理</i></li>
+        <li class="active">所有用户</li>
       </ol>
     </section>
     <!-- Main content -->

@@ -81,10 +81,10 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="../admin/page/password-change.html" class="btn btn-default btn-flat">修改密码</a>
+                                    <a href="../admin/page/password-change.jsp" class="btn btn-default btn-flat">修改密码</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/servlet/ServletDestroyLogin">退出</a>
+                                    <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/servlet/ServletAdminDestroyLogin">退出</a>
                                 </div>
                             </li>
                         </ul>
@@ -137,7 +137,7 @@
         <section class="content-header">
             <h1><small></small></h1>
             <ol class="breadcrumb">
-                <li><i class="fa fa-dashboard">&nbsp;证券查看</i></li>
+                <li><i class="fa fa-dashboard">&nbsp;证券管理</i></li>
                 <li class="active">所有证券</li>
             </ol>
         </section>

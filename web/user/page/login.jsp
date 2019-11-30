@@ -52,7 +52,7 @@
         </form>
 
         <!-- /.social-auth-links -->
-        <a href="forgetpd.html">忘记密码？</a><br>
+        <a href="forgetpd.jsp">忘记密码？</a><br>
     </div>
     <!-- /.login-box-body -->
 </div>

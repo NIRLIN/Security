@@ -89,10 +89,10 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="<%=request.getContextPath()%>/admin/admin/page/password-change.html" class="btn btn-default btn-flat">修改密码</a>
+                  <a href="<%=request.getContextPath()%>/admin/page/password-change.jsp" class="btn btn-default btn-flat">修改密码</a>
                 </div>
                 <div class="pull-right">
-                  <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/servlet/ServletDestroyLogin">退出</a>
+                  <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/servlet/ServletAdminDestroyLogin">退出</a>
                 </div>
               </li>
             </ul>

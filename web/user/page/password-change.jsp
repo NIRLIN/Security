@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -29,7 +30,13 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
+    <%
+        String name = (String) request.getSession().getAttribute("name");
+        if (name == null) {
+            response.getWriter().write("<script>alert('警告！请登录，点击返回返回登录页面！')</script>");
+            response.setHeader("refresh", "0.1;url=" + request.getContextPath() + "/admin/page/login.jsp");
+        }
+    %>
     <!-- Main Header -->
     <header class="main-header">
 
@@ -57,23 +64,23 @@
                         <!-- Menu Toggle Button -->
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <!-- The user image in the navbar-->
-                            <img alt="User Image" class="user-image" src="../img/setting.png">
+                            <img alt="User Image" class="user-image" src="${pageContext.request.contextPath}/user/img/setting.png">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-
+                            <span class="hidden-xs"><%=name%></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img alt="User Image" class="img-circle" src="../img/word.jpg">
+                                <img alt="User Image" class="img-circle" src="${pageContext.request.contextPath}/user/img/word.jpg">
                                 <p>让学习成为一种习惯</p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a class="btn btn-default btn-flat" href="#">修改密码</a>
+                                    <a class="btn btn-default btn-flat" href="password-change.jsp">修改密码</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a class="btn btn-default btn-flat" href="login.jsp">退出</a>
+                                    <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/servlet/ServletDestroyLogin">退出</a>
                                 </div>
                             </li>
                         </ul>
@@ -99,8 +106,8 @@
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/Security_war_exploded/servlet/ServletAllFind">所有证券</a></li>
-                        <li><a href="/Security_war_exploded/servlet/ServletHaveSecurity">已购证券</a></li>
+                        <li><a href="<%=request.getContextPath()%>/servlet/ServletAllFind">所有证券</a></li>
+                        <li><a href="<%=request.getContextPath()%>/servlet/ServletHaveSecurity">已购证券</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -110,7 +117,7 @@
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/Security_war_exploded/servlet/ServletFindOneUserInfo">信息查看</a></li>
+                        <li><a href="<%=request.getContextPath()%>/servlet/ServletFindOneUserInfo">信息查看</a></li>
                     </ul>
 
 
@@ -142,7 +149,7 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="/Security_war_exploded/servlet/ServletPassWordChange" name="changepassword" method="post">
+                    <form class="form-horizontal" action="<%=request.getContextPath()%>/servlet/ServletPassWordChange" name="changepassword" method="post">
                         <div class="box-body">
                             <div class="form-group">
                                 <div class="col-sm-10">

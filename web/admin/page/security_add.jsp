@@ -80,10 +80,10 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="password-change.html" class="btn btn-default btn-flat">修改密码</a>
+                  <a href="password-change.jsp" class="btn btn-default btn-flat">修改密码</a>
                 </div>
                 <div class="pull-right">
-                  <a href="login.jsp" class="btn btn-default btn-flat">退出</a>
+                  <a href="<%=request.getContextPath()%>/servlet/ServletAdminDestroyLogin" class="btn btn-default btn-flat">退出</a>
                 </div>
               </li>
             </ul>
