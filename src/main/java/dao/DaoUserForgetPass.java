@@ -8,35 +8,40 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DaoAdminUseNameFindId {
-    public static String useNameFindId(String admin_name){
+/**
+ * @author NieLin
+ * @version 1.0
+ * @date 2019/11/27 17:04
+ */
+public class DaoUserForgetPass {
+    public static int daoAdminLogin(String name,String phone){
+        int num=0;
         Connection connection= Utils.getConnection();
         PreparedStatement preparedStatement=null;
         ResultSet resultSet=null;
-        String sql="select * from admins where admin_name=?";
-        String admin_id="";
+        String sql="select * from users where user_name=? and user_phone=?";
         try {
             preparedStatement=connection.prepareStatement(sql);
-            preparedStatement.setString(1,admin_name);
+            preparedStatement.setString(1,name);
+            preparedStatement.setString(2,phone);
             resultSet=preparedStatement.executeQuery();
-            resultSet.next();
-            admin_id=String.valueOf(resultSet.getInt("admin_id"));
+            resultSet.last();
+            num=resultSet.getRow();
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
             try {
-                if (connection!=null)
+                if (connection != null)
                     connection.close();
-                if (preparedStatement!=null)
-                    preparedStatement.close();
-                if (resultSet!=null)
+                if (resultSet != null)
                     resultSet.close();
+                if (preparedStatement != null)
+                    preparedStatement.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
 
-        return admin_id;
-
+        return num;
     }
 }

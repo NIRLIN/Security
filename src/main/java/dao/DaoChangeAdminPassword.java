@@ -8,25 +8,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DaoChangeAdminPassword {
-    public static int daoChangeUserPassword(String user_id, String old_password, String new_password) {
+    public static int daoChangeUserPassword(String admin_id, String old_password, String new_password) {
         int num = 0;
         Connection connection = Utils.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        String sql1 = "select user_pass from users where user_id=?";
-        String sql2 = "UPDATE users SET user_pass = ? WHERE user_id = ? ";
+        String sql1 = "select admin_pass from admins where admin_id=?";
+        String sql2 = "UPDATE admins SET admin_pass = ? WHERE admin_id = ? ";
         try {
             preparedStatement = connection.prepareStatement(sql1);
-            preparedStatement.setString(1, user_id);
+            preparedStatement.setString(1, admin_id);
             resultSet = preparedStatement.executeQuery();
             String old_password1 = "-1";
             while (resultSet.next()) {
-                old_password1 = resultSet.getString("user_pass");
+                old_password1 = resultSet.getString("admin_pass");
             }
             if (old_password.equals(old_password1)) {
                 preparedStatement = connection.prepareStatement(sql2);
                 preparedStatement.setString(1, new_password);
-                preparedStatement.setString(2, user_id);
+                preparedStatement.setString(2, admin_id);
                 num = preparedStatement.executeUpdate();
             } else {
                 num = -1;

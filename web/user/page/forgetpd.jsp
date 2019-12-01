@@ -40,13 +40,14 @@
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input class="form-control" id="New_Password" name="New_Password" type="password">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                <input class="form-control" id="phone" name="phone" type="text">
+                <span class="glyphicon glyphicon-phone-alt form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input class="form-control" id="Again_New_Password" name="Again_New_Password" type="password">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
+                <input class="form-control" style="width: 70%;float: left;" id="code" name="code" type="text">
+                &nbsp;
+                <label class="glyphicon glyphicon-comment " id="auth_code" >获取验证码</label><br>
+            </div><br>
             <div class="row">
                 <!-- /.col -->
                 <div class="col-xs-4">
@@ -70,31 +71,15 @@
 <!-- iCheck -->
 <script src="../js/iCheck/icheck.min.js"></script>
 <!-- page script -->
+
 <script>
 
     function button_login(){
         var Name=document.getElementById("Name");
-        var Phone=document.getElementById("Phone");
-        var New_Password=document.getElementById("New_Password");
-        var Again_New_Password=document.getElementById("Again_New_Password");
+        var Phone=document.getElementById("phone");
+        var code=document.getElementById("code");
 
-        if (Name.value==""){
-            alert("用户名不可为空！");
-            return
-        }
 
-        if (New_Password.value==""){
-            alert("第一次密码不可为空！");
-            return
-        }
-        if (Again_New_Password.value==""){
-            alert("第二次密码不可为空！");
-            return
-        }
-        if(New_Password.value!=Again_New_Password.value){
-            alert("两次密码不一致！");
-            return
-        }
         $("#forgetpd").submit();
     }
 

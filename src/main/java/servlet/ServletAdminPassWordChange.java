@@ -20,21 +20,21 @@ public class ServletAdminPassWordChange extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String user_name= (String) request.getSession().getAttribute("name");
-        String user_id= DaoAdminUseNameFindId.useNameFindId(user_name);
+        String user_name= (String) request.getSession().getAttribute("admin_name");
+        String admin_id= DaoAdminUseNameFindId.useNameFindId(user_name);
         String old_password=request.getParameter("cpassword");
         String new_password=request.getParameter("npassword");
-        int num= DaoChangeAdminPassword.daoChangeUserPassword(user_id,old_password,new_password);
-        if (num==-1){
+        int num= DaoChangeAdminPassword.daoChangeUserPassword(admin_id,old_password,new_password);
+        if (num!=1){
             PrintWriter out=response.getWriter();
             out.print("<script>alert('error')</script>");
-            response.setHeader("refresh","0.1;../user/page/password-change.jsp");
+            response.setHeader("refresh","0.1;../admin/page/password-change.jsp");
         }
         if (num==1){
             request.getSession().removeAttribute("name");
             PrintWriter out=response.getWriter();
             out.print("<script>alert('succeed')</script>");
-            response.setHeader("refresh","0.1;../user/page/login.jsp");
+            response.setHeader("refresh","0.1;../admin/page/login.jsp");
         }
 
     }
