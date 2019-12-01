@@ -222,7 +222,9 @@
 
           <!-- /.box-body -->
           <div class="box-footer">
-            <input type="button" class="btn btn-primary pull-right"  id="but" onclick="button_panduan()" value="保存">
+            <input type="button" class="btn btn-primary pull-right"  id="but" onclick="button_panduan()" value="修改">
+            <input type="button" class="btn btn-primary pull-right"  id="buts" onclick="button_panduans()" value="删除">
+
           </div>
           <!-- /.box-footer -->
         </form>
@@ -261,6 +263,21 @@
 <script src="<%=request.getContextPath()%>/admin/js/AdminLTE/adminlte.min.js"></script>
 <!-- page script -->
 <script>
+  function  button_panduans() {
+    var msg = "您确定要删除这个证券吗？此操作不可逆！";
+    if (confirm(msg)===true){
+      var securitys_id=document.getElementById("securitys_id");
+
+      window.location.href='<%=request.getContextPath()%>/servlet/ServletAdminDestorySecurity?securitys_id='+securitys_id.value;
+      return true;
+    }else{
+      alert("取消成功！");
+      return false;
+    }
+
+
+
+  }
     function button_panduan() {
 
         var securitys_id=document.getElementById("securitys_id");

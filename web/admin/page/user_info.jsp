@@ -213,6 +213,8 @@
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <input type="submit" class="btn btn-primary pull-right"  value="修改">
+                        <input type="button" class="btn btn-primary pull-right"  id="buts" onclick="button_panduans()" value="删除">
+
                     </div>
                     <!-- /.box-footer -->
                 </form>
@@ -247,7 +249,20 @@
 <script src="${pageContext.request.contextPath}/user/js/AdminLTE/adminlte.min.js"></script>
 <!-- page script -->
 <script>
+    function  button_panduans() {
+        var msg = "您确定要删除这个用户吗？此操作不可逆！";
+        if (confirm(msg)===true){
+            var user_id=document.getElementById("user_id");
 
+            window.location.href='<%=request.getContextPath()%>/servlet/ServletAdminDeleteUser?user_id='+user_id.value;
+            return true;
+        }else{
+            alert("取消成功！");
+            return false;
+        }
+
+
+    }
 </script>
 </body>
 </html>
