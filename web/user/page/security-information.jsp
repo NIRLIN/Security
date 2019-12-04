@@ -310,9 +310,9 @@
         var link="?securitys_id="+securitys_id+"&deal_count="+deal_count;
         if (deal_count==0||parseInt(securitys_residualquantity3)<parseInt(deal_count)){
             alert("操作错误！");
-             window.location.href = 'http://localhost:8080<%=request.getContextPath()%>/servlet/ServletAllFind';
+             window.location.href = '<%=request.getContextPath()%>/servlet/ServletAllFind';
         }else {
-            window.location.href = 'http://localhost:8080<%=request.getContextPath()%>/servlet/ServletUserBuySecurity'+link;
+            window.location.href = '<%=request.getContextPath()%>/servlet/ServletUserBuySecurity'+link;
         }
     }
 

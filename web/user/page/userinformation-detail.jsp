@@ -1,5 +1,6 @@
 <%@ page import="po.Users" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*" %>
+<%@ page import="java.net.InetAddress" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -213,6 +214,7 @@
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <input type="submit" class="btn btn-primary pull-right"  value="修改">
+                        <input type="button" class="btn btn-primary pull-right" onclick="Addpay()" value="充值">
                     </div>
                     <!-- /.box-footer -->
                 </form>
@@ -247,7 +249,12 @@
 <script src="${pageContext.request.contextPath}/user/js/AdminLTE/adminlte.min.js"></script>
 <!-- page script -->
 <script>
+function Addpay() {
+    var user_id=document.getElementById("user_id");
 
+    window.location.href='<%=request.getContextPath()%>/utils/AliPay?user_id='+user_id.value;
+    
+}
 </script>
 </body>
 </html>

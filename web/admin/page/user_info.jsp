@@ -186,7 +186,7 @@
                             </div>
                             <label class="col-sm-2 control-label my-label" for="user_balance">用户余额</label>
                             <div class="col-sm-10 my-input">
-                                <input class="form-control" id="user_balance" name="user_balance"  readonly  type="text" value="<%=user.getUser_balance()%>">
+                                <input class="form-control" id="user_balance" name="user_balance"   type="text" value="<%=user.getUser_balance()%>">
                             </div>
                             <label class="col-sm-2 control-label my-label" for="user_profession">用户职业</label>
                             <div class="col-sm-10 my-input">

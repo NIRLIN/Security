@@ -1,5 +1,8 @@
 package utils;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 /**
  * @author NieLin
  * @version 1.0
@@ -7,7 +10,14 @@ package utils;
  */
 public class a {
     public static void main(String[] args) {
+        InetAddress addr = null;
+        try {
+            addr = InetAddress.getLocalHost();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        String ip=addr.getHostAddress();
 
-        System.out.println(AliSms.getAliSms("18798189064"));
+        System.out.println(ip);
     }
 }
